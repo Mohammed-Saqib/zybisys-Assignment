@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { RiStarSFill } from 'react-icons/ri'
-import { BiMoviePlay,BiLoaderAlt } from 'react-icons/bi'
+import { BiMoviePlay } from 'react-icons/bi'
+import { MdErrorOutline } from 'react-icons/md'
 import { BsFillTrashFill } from 'react-icons/bs'
 import { AiFillBackward } from 'react-icons/ai'
 import { toast } from 'react-toastify'
@@ -42,7 +43,8 @@ const WatchList = () => {
       { 
         watchList.length === 0 ?  (
           <div className='not-found container-status'>
-          <BiLoaderAlt className='loader'/>
+          <MdErrorOutline />
+        <h2>No Watchlist</h2>
         </div>
          )
          : ' '
