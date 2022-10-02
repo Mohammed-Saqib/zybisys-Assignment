@@ -6,19 +6,29 @@ import { MdErrorOutline } from 'react-icons/md'
 import { BsFillTrashFill } from 'react-icons/bs'
 import { AiFillBackward } from 'react-icons/ai'
 import { toast } from 'react-toastify'
+import { useDispatch, useSelector } from 'react-redux'
 
 const WatchList = () => {
-
+  const { showSearchbar } = useSelector(state => ({...state.anime}));
+  const dispatch = useDispatch();
   const [watchList, setWatchList] = useState([]);
-  const LOCAL_STORAGE_KEY = "ANIME"
+  const LOCAL_STORAGE_KEY = "ANIME";
+  
   useEffect(() => {
     toast.info("Your WatchList",{
       position : 'top-center'
     })
+    setWatchList(showSearchbar);
     const retreiveWatchList = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
     if (retreiveWatchList) setWatchList(retreiveWatchList)
-    console.log(watchList.length);
   }, []);
+
+  useEffect(() => {
+    dispatch({type : 'hideNavbar'})
+    return () => {
+      dispatch({type: 'unHideNavbar'})
+    }
+  }, [])
 
   const removeHandler = (anime) => {
     const updatedWatchList = watchList.filter((elem) => {
@@ -30,7 +40,6 @@ const WatchList = () => {
     toast.success("SuccessFully Removed From Watchlist", {
       position: toast.POSITION.TOP_CENTER,
     })
-    console.log(watchList.length);
   }
 
 

@@ -17,6 +17,7 @@ const animeSlice = createSlice({
         error: "",
         loading: false,
         welcome: true,
+        showSearchbar: true,
     },
     extraReducers:{
         [getData.pending] : (state, action)  => {
@@ -32,6 +33,12 @@ const animeSlice = createSlice({
         },
         ['welcome/message'] : (state, action) => {
             state.welcome = false;
+        },
+        ['hideNavbar'] : (state, action) => {
+            state.showSearchbar = false;
+        },
+        ['unHideNavbar'] : (state, action) => {
+            state.showSearchbar = true;
         }
     }
 });

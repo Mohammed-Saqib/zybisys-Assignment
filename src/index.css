@@ -309,6 +309,14 @@ body {
 .loader{
   animation: rot 1s infinite linear;
 }
+.my-heading{
+  font-size: 3rem;
+  line-height: 3rem;
+  font-weight: 800;
+  color: var(--navTextHoverColor);
+  text-transform: uppercase;
+  word-spacing: .5rem;
+}
 @keyframes rot {
   from{
     transform: rotate(-360deg);
@@ -323,6 +331,11 @@ body {
   }
   .d-left-side, .d-right-side{
     width: 100%;
+  }
+  .my-heading{
+    font-size: 2.2rem;
+    line-height: 2.2rem;
+    font-weight: 600;
   }
 }
 
@@ -377,6 +390,10 @@ body {
   .d-info span, .d-info a, .d-info svg{
     font-size: 1.4rem;
     line-height: 1.8rem;
+  }
+  .my-heading{
+    font-size: 1.6rem;
+    line-height: 1.6rem;
   }
 }
 

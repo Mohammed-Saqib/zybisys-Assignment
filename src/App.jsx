@@ -15,7 +15,7 @@ const App = () => {
   const dispatch = useDispatch();
   const[ searchTerm, setSearchTerm ] = useState("");
   const[ searchResult, setSearchResult ] = useState([]);
-  const { error, animeData, loading, welcome } = useSelector(state => ({ ...state.anime }))
+  const { error, animeData, welcome, showSearchbar } = useSelector(state => ({ ...state.anime }))
   if(welcome){
     toast.success("Welcome",{
       position: toast.POSITION.TOP_CENTER
