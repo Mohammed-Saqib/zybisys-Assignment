@@ -9,7 +9,6 @@ import { toast } from 'react-toastify'
 import { useDispatch, useSelector } from 'react-redux'
 
 const WatchList = () => {
-  const { showSearchbar } = useSelector(state => ({...state.anime}));
   const dispatch = useDispatch();
   const [watchList, setWatchList] = useState([]);
   const LOCAL_STORAGE_KEY = "ANIME";
@@ -18,7 +17,6 @@ const WatchList = () => {
     toast.info("Your WatchList",{
       position : 'top-center'
     })
-    setWatchList(showSearchbar);
     const retreiveWatchList = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
     if (retreiveWatchList) setWatchList(retreiveWatchList)
   }, []);
